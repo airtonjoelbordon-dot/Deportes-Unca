@@ -1,0 +1,36 @@
+(deportes) PS C:\Proyectos_Django\deportes> python manage.py shell
+15 objects imported automatically (use -v 2 for details).
+
+Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from reservas.models import ActividadDeportiva, Horario, Inscripcion
+>>> act1 = ActividadDeportiva.objects.create(nombre="Natacion", descripcion="Pileta libre", lugar="Pileta Olimpica", cupo=15)
+>>> act2 = ActividadDeportiva.objects.create(nombre="Futbol", descripcion="Futbol 5", lugar="Cancha 1", cupo=10)
+>>> act3 = ActividadDeportiva.objects.create(nombre="Basquet", descripcion="Entrenamiento", lugar="Gimnasio Techado", cupo=12)
+>>> horario1 = Horario.objects.create(actividad=act1, dia="Lunes", hora_inicio="10:00", hora_fin="11:30")
+>>> horario2 = Horario.objects.create(actividad=act1, dia="Miercoles", hora_inicio="15:00", hora_fin="16:30")
+>>> insc1 = Inscripcion.objects.create(nombre="Juan", apellido="Perez", dni="11111111", horario=horario1)
+>>> insc2 = Inscripcion.objects.create(nombre="Maria", apellido="Gomez", dni="22222222", horario=horario1)
+>>> insc3 = Inscripcion.objects.create(nombre="Carlos", apellido="Lopez", dni="33333333", horario=horario2)
+>>> ActividadDeportiva.objects.all()
+<QuerySet [<ActividadDeportiva: Natacion>, <ActividadDeportiva: Futbol>, <ActividadDeportiva: Basquet>]>
+>>> Horario.objects.filter(actividad__nombre="Natacion")
+<QuerySet [<Horario: Natacion - Lunes (10:00:00 a 11:30:00)>, <Horario: Natacion - Miercoles (15:00:00 a 16:30:00)>]>
+>>> Inscripcion.objects.filter(estado="Activa")
+<QuerySet [<Inscripcion: Perez, Juan - Natacion>, <Inscripcion: Gomez, Maria - Natacion>, <Inscripcion: Lopez, Carlos - Natacion>]>
+>>> Inscripcion.objects.filter(horario=horario1)
+<QuerySet [<Inscripcion: Perez, Juan - Natacion>, <Inscripcion: Gomez, Maria - Natacion>]>
+>>> act_modificar = ActividadDeportiva.objects.get(nombre="Futbol")
+>>> act_modificar.cupo = 20
+>>> act_modificar.save()
+>>> print(ActividadDeportiva.objects.get(nombre="Futbol").cupo)
+20
+>>> insc_cancelar = Inscripcion.objects.get(dni="11111111")
+>>> insc_cancelar.estado = "Cancelada"
+>>> insc_cancelar.save()
+>>> print(Inscripcion.objects.get(dni="11111111").estado)
+Cancelada
+>>> insc_eliminar = Inscripcion.objects.get(dni="33333333")
+>>> insc_eliminar.delete()
+(1, {'reservas.Inscripcion': 1})
