@@ -1,0 +1,194 @@
+/* Selector de etiqueta para darle fondo al encabezado */
+header {
+    background-color: #1e3a8a; /* Azul oscuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Selector combinado para modificar los enlaces del menú */
+header nav ul {
+    list-style: none; /* Quita las viñetas redondas */
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block; /* Pone los enlaces uno al lado del otro */
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #38bdf8; /* Celeste claro */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: white; /* Cambia a blanco al pasar el mouse */
+}
+
+body {
+    /* La ruta a tu imagen (saliendo de la carpeta css y entrando a img) */
+    background-image: url("../img/img-deportes2.jpg");
+
+    /* Evita que la imagen se repita como mosaico */
+    background-repeat: no-repeat;
+
+    /* Le dice al navegador que la imagen debe estirarse para cubrir todo el espacio */
+    background-size: cover;
+
+    /* Mantiene la imagen fija en su lugar cuando haces scroll hacia abajo */
+    background-attachment: fixed;
+
+    /* Centra la imagen perfectamente en la pantalla */
+    background-position: center;
+}
+
+/* Selector de etiqueta para las secciones principales */
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco con 90% de opacidad */
+    padding: 30px; /* Espacio interno para que el texto no toque los bordes */
+    margin-top: 30px; /* Separación respecto al encabezado */
+    margin-bottom: 30px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pequeña sombra para dar profundidad */
+}
+
+/* Selector para mejorar la tipografía de los títulos dentro de la sección */
+section h3, section h2 {
+    color: #1e3a8a; /* Mismo azul del encabezado para mantener coherencia */
+    border-bottom: 2px solid #38bdf8; /* Línea separadora celeste */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Selector de clase para los botones principales */
+.btn-inscribir {
+    display: inline-block; /* Permite aplicar márgenes y rellenos correctamente al enlace */
+    background-color: #38bdf8; /* Color celeste */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px 20px; /* Tamaño del botón */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s; /* Animación suave para el hover */
+}
+
+/* Pseudo-clase para cuando el mouse pasa por encima */
+.btn-inscribir:hover {
+    background-color: #0284c7; /* Cambia a un azul más oscuro */
+    color: white;
+}
+
+/* Estilos generales del formulario */
+form {
+    max-width: 600px; /* Evita que el formulario sea excesivamente ancho en pantallas grandes */
+}
+
+/* Diseño de las agrupaciones de datos */
+fieldset {
+    border: 1px solid #cbd5e1; /* Borde gris suave */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8fafc; /* Fondo gris muy clarito para contrastar con la sección blanca */
+}
+
+legend {
+    font-weight: bold;
+    color: #1e3a8a;
+    padding: 0 10px;
+}
+
+/* Diseño de las etiquetas descriptivas */
+label {
+    display: block; /* Obliga a la etiqueta a estar en su propia línea, arriba de la caja de texto */
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Diseño de las cajas de entrada de datos y menús desplegables */
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%; /* Ocupan todo el ancho disponible del fieldset */
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding no rompa el ancho total */
+}
+
+/* Pseudo-clase para resaltar la caja cuando el usuario hace clic adentro */
+input:focus, select:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 5px rgba(56, 189, 248, 0.5); /* Resplandor celeste */
+}
+
+/* Diseño para los botones de envío y cancelación dentro del formulario */
+form button, form input[type="submit"] {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+form button:hover, form input[type="submit"]:hover {
+    background-color: #0284c7;
+}
+
+/* Estilo general de la tabla */
+table {
+    width: 100%; /* Ocupa todo el ancho de la sección */
+    border-collapse: collapse; /* Une los bordes para que no se vean dobles */
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: white; /* Asegura que el fondo sea sólido */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Necesario para que el border-radius funcione en la tabla */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los encabezados de las columnas (th) */
+th {
+    background-color: #1e3a8a; /* Azul oscuro del encabezado */
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    padding: 15px;
+}
+
+/* Estilo para las celdas de datos (td) */
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0; /* Línea separadora sutil */
+    color: #333;
+}
+
+/* Pseudo-clase para dar color alternado a las filas (efecto cebra) */
+tr:nth-child(even) {
+    background-color: #f8fafc; /* Gris muy claro para las filas pares */
+}
+
+/* Pseudo-clase para resaltar la fila al pasar el mouse */
+tr:hover {
+    background-color: #e0f2fe; /* Celeste claro al posicionar el cursor */
+}
+
+/* Estilo minimalista para el pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #64748b; /* Gris azulado suave */
+    border-top: 1px solid #e2e8f0; /* Línea separadora muy fina */
+}
